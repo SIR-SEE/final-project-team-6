@@ -32,8 +32,8 @@ proportion_of_agegroup = {
 
 
 # describe the parameters
-N =  1000000        # population 2470
-beta = 2    #expected amount of people an infected person infects per day
+N =  10000000
+beta = 0.4    #expected amount of people an infected person infects per day
 k = 1/7
 delta = 1/10 #incubation period 
 rho = 1/9 #days until death
@@ -43,7 +43,7 @@ S0, E0, I0, R0, D0 = N-1, 1, 0, 0, 0  # initial conditions: one infected, rest s
 
 
 
-t = np.linspace(0, 99, 100) # Grid of time points (in days)
+t = np.linspace(0, 299, 300) # Grid of time points (in days)
 y0 = S0, E0, I0, R0, D0 # Initial conditions vector
 
 # Integrate the SIR equations over the time grid, t.
@@ -55,10 +55,10 @@ S, E, I, R, D = ret.T
 
 def plotsir(t, S, E, I, R, D):
   f, ax = plt.subplots(1,1,figsize=(10,4))
-  #ax.plot(t, S, 'b', alpha=0.7, linewidth=2, label='Susceptible')
-  #ax.plot(t, E, 'y', alpha=0.7, linewidth=2, label='Exposed')
-  #ax.plot(t, I, 'r', alpha=0.7, linewidth=2, label='Infected')
-  #ax.plot(t, R, 'g', alpha=0.7, linewidth=2, label='Recovered')
+  ax.plot(t, S, 'b', alpha=0.7, linewidth=2, label='Susceptible')
+  ax.plot(t, E, 'y', alpha=0.7, linewidth=2, label='Exposed')
+  ax.plot(t, I, 'r', alpha=0.7, linewidth=2, label='Infected')
+  ax.plot(t, R, 'g', alpha=0.7, linewidth=2, label='Recovered')
   ax.plot(t, D, 'k', alpha=0.7, linewidth=2, label='Dead')
   #ax.plot(t, S+E+I+R+D, 'k--', alpha=0.7, linewidth=2, label='Total')
   
