@@ -60,6 +60,7 @@ def plotsir(t, S, E, I, R, D):
   ax.plot(t, I, 'r', alpha=0.7, linewidth=2, label='Infected')
   ax.plot(t, R, 'g', alpha=0.7, linewidth=2, label='Recovered')
   ax.plot(t, D, 'k', alpha=0.7, linewidth=2, label='Dead')
+  #added total plot to see that math adds up
   #ax.plot(t, S+E+I+R+D, 'k--', alpha=0.7, linewidth=2, label='Total')
   
   ax.set_xlabel('Time (days)')
